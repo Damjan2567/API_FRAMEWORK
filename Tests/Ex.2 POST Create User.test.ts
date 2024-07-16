@@ -12,9 +12,11 @@ describe('MetergramClient Tests', () => {
     });
 
     test('CreateUser', async () => {
+        const name = `User_${Math.random().toString(36).substring(7)}`;
+        const job = `Job_${Math.random().toString(36).substring(7)}`;
         const request: CreateUserRequest = {
-            name: 'John Doe',
-            job: 'Software Developer'
+            name: name,
+            job: job
         };
 
         const response: AxiosResponse<CreateUserResponse> = await metergramClient.createUser(request);

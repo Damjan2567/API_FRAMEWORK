@@ -17,6 +17,7 @@ export class MetergramClient extends BaseClient {
     //     email: "nikola_nikolik@hotmail.com",
     //     password: ""
     // };
+    private _userId: number | undefined;
 
     constructor() {
         super();
@@ -31,6 +32,14 @@ export class MetergramClient extends BaseClient {
     // public authenticateOnTheSite(postAuthRequestBody: PostAuthRequestBody): ResponseEntity<PostAuthResponseBody> {
     //     return this.post(MetergramClient.authenticate, postAuthRequestBody);
     // }
+
+    get userId(): number | undefined {
+        return this._userId;
+    }
+
+    set userId(value: number | undefined) {
+        this._userId = value;
+    }
 
     public getUserById(id: number): ResponseEntity<GetUsersResponseBody> {
         return this.get( "users/" + id);

@@ -10,9 +10,9 @@ describe('MetergramClient Tests', () => {
     });
 
     test('DeleteUser', async () => {
-        const userId = 10;
+        metergramClient.userId = 10;
 
-        const response: AxiosResponse<void> = await metergramClient.deleteUser(userId);
+        const response: AxiosResponse<void> = await metergramClient.deleteUser(metergramClient.userId!);
 
         expect(response.status).toBe(204);
     });
